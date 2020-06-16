@@ -1,0 +1,31 @@
+`default_nettype none
+
+module tb;
+  reg A,B,C,D;
+  reg [1:0] SEL1;
+  wire OUT;
+  
+  mux uut(A,B,C,D,SEL1,OUT);
+  
+  initial 
+    begin 
+      $dumpfile("dump.vcd");
+      $dumpvars;
+      
+      A=1'b1;
+      B=1'b0;
+      C=1'b1;
+      D=1'b0;
+      SEL1=2'b00; //case 1
+      #1 
+      SEL1=2'b01; //case 2
+     
+      #1
+      SEL1=2'b10; //case 3
+     
+      #1
+      SEL1=2'b11; //case 4
+      
+      #1 $finish;
+    end 
+endmodule 
