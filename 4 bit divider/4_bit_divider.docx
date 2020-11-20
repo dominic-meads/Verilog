@@ -1,0 +1,13 @@
+Pattern observations
+-	E_zero is just the nand of all divisor bits (if all are zero, you cannot divide by zero)
+-	If the divisor is >0.5*dividend (call the quantity x), the remainder decreases from that point by a factor of 1 for each integer increase in the divisor. The remainder Ris the difference between the divisor and x. 
+o	Ex. If divisor = 7 and dividend = 12,
+x = 0.5*12 
+x = 6
+7 > x
+R = 12-7
+R = 5
+
+If divisor increases by 1, divisor = 8    (+1)
+Remainder decreases by 1, R = 5-1 
+			      R = 4        (-1)
