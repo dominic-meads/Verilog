@@ -1,0 +1,20 @@
+Pattern observations
+-	E_zero is just the nand of all divisor bits (if all are zero, you cannot divide by zero)
+-	If the divisor is >0.5*dividend (call the quantity x), the remainder decreases from that point by a factor of 1 for each integer increase in the divisor. The remainder Ris the difference between the divisor and x. 
+o	Ex. If divisor = 7 and dividend = 12,
+x = 0.5*12 
+x = 6
+7 > x
+R = 12-7
+R = 5
+
+If divisor increases by 1, divisor = 8    (+1)
+Remainder decreases by 1, R = 5-1 
+			      R = 4        (-1)
+-	E_frac is high when the divisor > dividend 
+o	Building a comparator takes the same resources as a “>” comparison in code (don’t have to build it 😊
+-	E_frac acts like an enable to Q. If E_frac high, Q = 0; AND gate with  a not gate on the enable line connecting to E_frac  ->   Q = Q & ~E_frac
+-	Q is 0 whenevr E_frac is high OR E_zero is high. Add this logical statement to the one above (make the error signals act as enables) ->  Q = Q & ~(E_frac | E_zero)
+-	If Divisor == 1, Q = dividend
+-	If divisor > 0.5 * dividend, then Q = 1. 
+-	CHECK MULTIPLES OF 3 AND NUMBER OF Q=2 INSTANCES
